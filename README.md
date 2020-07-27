@@ -16,7 +16,7 @@ from nutritiontools import Nutrition
 
 n_obj = Nutrition() 
 
-match = n_obj.semantic_search('I ate an apple') 
+match = n_obj.semantic_search("I ate an apple") 
 
 print(match)
 ```

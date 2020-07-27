@@ -25,6 +25,6 @@ print(match)
 
 For testing purposes, we used [Siri Shortcuts](https://support.apple.com/en-us/HT209055) (iOS) and [Google Assistant / IFTTT webhooks](https://ifttt.com/google_assistant) (Android) to send voice transcriptions to [Google Firebase](https://firebase.google.com/docs/storage/web/start). Once received, the incoming data would trigger a [Firebase Cloud Function](https://firebase.google.com/docs/functions). The Firebase Function sent the voice transcription to our [Semantic Nutrition API](semantic.py)(hosted online with [Flask](https://flask.palletsprojects.com/en/1.1.x/quickstart/) and [Google App Engine](https://cloud.google.com/appengine/docs/standard/python3/building-app)), which responded with estimates for nutrition data. The nutrition data was then logged in Google Firebase.
 
-We're currently in the process of developing native applications for iOS (Siri) and Android (Google Assistant) to leverage their local voice command capabilities. While useful for testing and demonstrations, this method has been depecrated in favor of a native mobile application and private server / database. Please stay tuned for future developments, and feel free to use our API locally in the meantime!
+While useful for testing and demonstrations, this method has been depecrated in favor of a native mobile application and private server / database. Please stay tuned for future developments, and feel free to use our API locally in the meantime!
 
 *updated on 7/27/2020*

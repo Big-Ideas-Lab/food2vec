@@ -1,4 +1,4 @@
-rom distutils.core import setup
+from distutils.core import setup
 setup(
   name = 'nutritiontools',         # How you named your package folder (MyLib)
   packages = ['nutritiontools'],   # Chose the same as "name"

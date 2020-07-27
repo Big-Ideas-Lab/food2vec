@@ -73,10 +73,13 @@ class Nutrition:
     def load_embeddings(self, filepath):
         '''
         Method to load embedding dictionary from remote location.
+
         PARAMS
+        -------
         filepath : Str (url)
 
         RETURNS
+        -------
         embedding_dictionary : Dict {food : embedding}
         '''
 
@@ -88,7 +91,7 @@ class Nutrition:
         return {k:self.convert_json_string_to_numpy(v) for k,      v in embeddings_dict.items()}
 
 
-    def find_best_match(self, food_string):
+    def semantic_search(self, food_string):
         '''
         Method to find best matching string to database using cosine similarity.
         Multiple entries are detected by the presence of "and" or "with"
@@ -97,20 +100,26 @@ class Nutrition:
         are searched and returned.
 
         PARAMS
+        -------
         food_string : Str
             food_string can be natural language. E.g. "I ate a kale salad".
  
         RETURNS
-        food_match : List
-            Matched row from database including food name and nutrients
-        maxval : Float
-            Cosine similarity of original item to matched item
+        -------
+        json_dict : JSON
+            {
+                food_name : value, 
+                nutrient1 : value, 
+                nutrient2 : value, 
+                ...
+                match: value,
+            }
         '''
         #apply a cosine similarity function to full numpy matrix of database embeddings, compare to embedded food string for cosine sim array
         cosines = np.apply_along_axis(self.cosine, 1, self.database_embeddings[:, 1:], self.embed(food_string))
 
         #find best match value
-        maxval = cosines.max()
+        highest_match = cosines.max()
 
         #find index of best match value
         maxvalidx = np.argmax(cosines)
@@ -119,12 +128,29 @@ class Nutrition:
         food_match = self.database_values[maxvalidx][1:]
 
         #process data for return
-        json_dict = self.process_return_data(food_match, maxval)
+        json_dict = self.convert_to_json(food_match, highest_match)
 
         return json_dict
 
-    def process_return_data(self, food_row, val):
+    def convert_to_json(self, food_row, val):
        
+        '''
+        Method to convert food row and match value to a json format for API
+        PARAMS
+        -------
+        food_match : List
+            Matched row from database including food name and nutrients
+        maxval : Float
+            Cosine similarity of original item to matched item
+ 
+        RETURNS
+        -------
+        food_match : List
+            Matched row from database including food name and nutrients
+        maxval : Float
+            Cosine similarity of original item to matched item
+
+        '''
         key_names = list(self.columns) + ['match']
         value_names = list(food_row) + [val]
      
@@ -132,7 +158,7 @@ class Nutrition:
 
     def embed(self, string):
         '''
-        A uility function to embed a string of arbitrary size
+        A method to embed a string of arbitrary size
 
         PARAMS
         string : String
@@ -152,13 +178,14 @@ class Nutrition:
     @staticmethod
     def convert_json_string_to_numpy(json_string):
         ''' 
-        A utility function to convert a json string to a numpy array
+        A utility method to convert a json string to a numpy array
         '''
         return np.array(json.loads(json_string))
+
     @staticmethod
     def cosine(vA, vB):
         '''
-        A utility function to find the cosine similarity between two vectors of equal length
+        A utility method to find the cosine similarity between two vectors of equal length
 
         PARAMS
 

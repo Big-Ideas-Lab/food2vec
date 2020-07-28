@@ -1,0 +1,9 @@
+README.md
+setup.py
+nutritiontools/__init__.py
+nutritiontools/semantic_nutrition.py
+semantic_nutrition.egg-info/PKG-INFO
+semantic_nutrition.egg-info/SOURCES.txt
+semantic_nutrition.egg-info/dependency_links.txt
+semantic_nutrition.egg-info/requires.txt
+semantic_nutrition.egg-info/top_level.txt

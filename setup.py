@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="semantic-nutrition", # Replace with your own username
-    version="0.0.3",
+    name="food2vec-joshuadrc", # Replace with your own username
+    version="0.0.4",
     author="Joshua D'Arcy",
     author_email="joshuadrc@gmail.com",
     description="Tools for semantic nutrition",

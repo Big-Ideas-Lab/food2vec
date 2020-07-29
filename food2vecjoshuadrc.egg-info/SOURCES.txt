@@ -1,7 +1,0 @@
-README.md
-setup.py
-food2vecjoshuadrc.egg-info/PKG-INFO
-food2vecjoshuadrc.egg-info/SOURCES.txt
-food2vecjoshuadrc.egg-info/dependency_links.txt
-food2vecjoshuadrc.egg-info/requires.txt
-food2vecjoshuadrc.egg-info/top_level.txt

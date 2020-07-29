@@ -1,0 +1,7 @@
+README.md
+setup.py
+food2vec.egg-info/PKG-INFO
+food2vec.egg-info/SOURCES.txt
+food2vec.egg-info/dependency_links.txt
+food2vec.egg-info/requires.txt
+food2vec.egg-info/top_level.txt

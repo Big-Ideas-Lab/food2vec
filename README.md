@@ -16,9 +16,22 @@ from food2vec.semantic_nutrition import Estimator
 
 estimator = Estimator() 
 
+# Search database for nutrition estimates
 match = estimator.natural_search("I ate an apple") 
 
-print(match)
+# Search for embeddings in our database
+embedding = estimator.embed('apple')
+
+# See the relationship between embeddings
+embedding1 = estimator.embed('orange')
+embedding2 = estimator.embed('apple')
+relationship = estimator.cosine(embedding1, embedding2)
+
+# Use your own dataset
+my_estimator = Estimator(food_data_filepath = 'my_nutrition_data.csv')
+
+# Use your own embeddings
+my_estimator = Estimator(food_embeddings_filepath = 'my_embeddings.csv')
 ```
 
 ## Connecting to mobile assistants, placing the API in an online server, and managing a database

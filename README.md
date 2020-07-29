@@ -19,15 +19,17 @@ estimator = Estimator()
 # Search database for nutrition estimates
 match = estimator.natural_search("I ate an apple") 
 
-# Search for embeddings in our database
-embedding = estimator.embed('apple')
+# Embed words or phrases with food content (limited to our food-related vocabulary)
+# Here, embedding1 will be equal to embedding2
+embedding1 = estimator.embed('apple')
+embedding2 = estimator.embed('I ate an apple')
 
 # See the relationship between embeddings
 embedding1 = estimator.embed('orange')
 embedding2 = estimator.embed('apple')
 relationship = estimator.cosine(embedding1, embedding2)
 
-# Use your own dataset
+# Use your own nutrition dataset
 my_estimator = Estimator(food_data_filepath = 'my_nutrition_data.csv')
 
 # Use your own embeddings

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="semantic-nutrition", # Replace with your own username
-    version="0.0.2",
+    version="0.0.3",
     author="Joshua D'Arcy",
     author_email="joshuadrc@gmail.com",
     description="Tools for semantic nutrition",

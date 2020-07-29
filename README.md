@@ -1,7 +1,7 @@
 # Semantic Nutrition
 This repo demonstrates how our basic semantic nutrition API works. We submitted this process as a clinical abtract to MLHC 2020 ([poster](Poster_Semantic_Nutrition.pdf), [abstract](Abstract_Semantic_Nutrition.pdf)). 
 
-This is a base version of what was presented at the MLHC, and operates on a limited dataset. The dataset we used for training and publication is not ours to share. If you're interested in using your own nutrition dataset with this API, you can designate a different (local or hosted) URL when you initialize the class. The USDA provides an excellent [starting point](https://fdc.nal.usda.gov) to build a dataset.
+This is a base implementation of what was presented at the MLHC, and operates on a limited dataset. The dataset we used for training and publication is not ours to share. If you're interested in using your own nutrition dataset with this API, you can designate a different (local or hosted) csv when you initialize the class. The USDA provides an excellent [starting point](https://fdc.nal.usda.gov) to build a dataset.
 
 ## Installation
 
@@ -12,11 +12,11 @@ pip install nutritiontools
 ## Usage
 
 ```
-from nutritiontools import Nutrition
+from nutritiontools.semantic_nutrition import Estimator
 
-n_obj = Nutrition() 
+estimator = Estimator() 
 
-match = n_obj.semantic_search("I ate an apple") 
+match = estimator.natural_search("I ate an apple") 
 
 print(match)
 ```

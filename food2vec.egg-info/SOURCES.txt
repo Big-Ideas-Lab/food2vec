@@ -1,5 +1,7 @@
 README.md
 setup.py
+food2vec/__init__.py
+food2vec/semantic_nutrition.py
 food2vec.egg-info/PKG-INFO
 food2vec.egg-info/SOURCES.txt
 food2vec.egg-info/dependency_links.txt

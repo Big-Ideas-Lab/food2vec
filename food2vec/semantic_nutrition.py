@@ -33,9 +33,11 @@ class Estimator:
         (embeddings with food ID, and nutrition values with food ID)
 
         PARAMS
-        filepath : Str. Handles both local and remote.
+        ------
+        filepath : String. Handles both local and remote.
 
         RETURNS
+        ------
         database_embeddings : np.array([Float])
         database_values : np.array([Float])
         '''
@@ -84,11 +86,11 @@ class Estimator:
         Method to load embedding dictionary from remote location.
 
         PARAMS
-        -------
-        filepath : Str (url)
+        ------
+        filepath : String (url)
 
         RETURNS
-        -------
+        ------
         embedding_dictionary : Dict {food : embedding}
         '''
 
@@ -101,22 +103,27 @@ class Estimator:
     def natural_search(self, food_string):
         '''
         Method to preprocess an incoming natural language string.
+        Multiple entries are detected by the presence of "and".
+        When finding multiple entries, both matches for full string and substrings 
+        are searched and returned.
+        
         PARAMS
-        -------
-        food_string : Str
+        ------
+        food_string : String
             food_string can be natural language. E.g. "I ate a kale salad".
 
         RETURNS
-        -------
-        json_array_dicts : JSON
+        ------
+        json_array_dicts : JSON Array
             [{}, {}, {}]
         '''
 
         if 'and' in food_string:
             s = food_string.split('and')
-            s.append(food_string)
+            s.append(food_string) #still check full string
             embeddings = [self.embed(sub) for sub in s]
             return [self.find_best_match(e) for e in embeddings]
+        
         else:
             embedding = self.embed(food_string)
             return self.find_best_match(embedding)
@@ -126,18 +133,14 @@ class Estimator:
     def find_best_match(self, embedded):
         '''
         Method to find best matching string to database using cosine similarity.
-        Multiple entries are detected by the presence of "and" or "with"
-
-        When finding multiple entries, both matches for full string and substrings 
-        are searched and returned.
 
         PARAMS
-        -------
+        ------
         embedded : [Float]
             food_string that has been preprocessed and embedded.
  
         RETURNS
-        -------
+        ------
         json_dict : JSON
             {
                 food_name : value, 
@@ -168,20 +171,6 @@ class Estimator:
        
         '''
         Method to convert food row and match value to a json format for API
-        PARAMS
-        -------
-        food_match : List
-            Matched row from database including food name and nutrients
-        maxval : Float
-            Cosine similarity of original item to matched item
- 
-        RETURNS
-        -------
-        food_match : List
-            Matched row from database including food name and nutrients
-        maxval : Float
-            Cosine similarity of original item to matched item
-
         '''
         key_names = list(self.columns) + ['match']
         value_names = list(food_row) + [val]

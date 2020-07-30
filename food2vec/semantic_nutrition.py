@@ -4,7 +4,6 @@ import csv
 import pandas as pd
 import requests
 import json
-from itertools import combinations
 
 class Estimator:
     def __init__(self, 

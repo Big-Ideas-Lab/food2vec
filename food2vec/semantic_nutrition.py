@@ -8,11 +8,33 @@ from itertools import combinations
 
 class Estimator:
     def __init__(self, 
-    food_data_filepath = 'https://github.com/Big-Ideas-Lab/food2vec/raw/master/demo_data.csv', 
-    food_embeddings_filepath = 'https://github.com/Big-Ideas-Lab/food2vec/raw/master/data.json', 
-    demo_warning = True):
+         food_data_filepath = 'https://github.com/Big-Ideas-Lab/food2vec/raw/master/demo_data.csv', 
+         food_embeddings_filepath = 'https://github.com/Big-Ideas-Lab/food2vec/raw/master/data.json', 
+         demo_warning = True):
 
-
+        '''
+        Class init. 
+        
+        PARAMS
+        ------
+        
+        food_data_filepath : String (optional)
+            A filepath containiing a nutrition csv (local or remote) in a specified format. 
+            
+        food_embeddings_filepath : String (optional)
+            A filepath that downloads our embeddings from GitHub. Optionally, you can host your own.
+            
+        demo_warning : Boolean (optional)
+            Warning for the demo, which includes limited data.
+        
+        
+        RETURNS
+        ------
+        
+        Estimator : Class
+            
+        '''
+        
         self.embedding_dictionary = self.load_embeddings(food_embeddings_filepath)
         self.database_embeddings, self.database_values = self.load_database_pandas(food_data_filepath)
         

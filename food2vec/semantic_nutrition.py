@@ -34,12 +34,14 @@ class Estimator:
 
         PARAMS
         ------
-        filepath : String. Handles both local and remote.
+        filepath : String. 
+            Handles both local and remote.
 
         RETURNS
         ------
         database_embeddings : np.array([Float])
         database_values : np.array([Float])
+        
         '''
         # download demo data from GitHub
         df = pd.read_csv(filepath)
@@ -182,10 +184,13 @@ class Estimator:
         A method to embed a string of arbitrary size
 
         PARAMS
+        ------
         string : String
 
         RETURNS
+        ------
         embedding : np.array([Float]) of size 300
+        
         '''
         base = np.zeros(300) 
         array = string.split(' ')
@@ -215,12 +220,12 @@ class Estimator:
         A utility method to find the cosine similarity between two vectors of equal length
 
         PARAMS
-
+        ------
         vA : np.array([Float])
         vB : np.array([Float])
 
         RETURNS
-
+        ------
         similarity : Float
         '''
         similarity = np.dot(vA, vB) / (np.linalg.norm(vA) * np.linalg.norm(vB))

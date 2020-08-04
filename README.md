@@ -1,7 +1,7 @@
 # Semantic Nutrition
 This repo demonstrates how our semantic nutrition API works. We submitted this process as a clinical abtract to MLHC 2020 ([poster](Poster_Semantic_Nutrition.pdf), [abstract](Abstract_Semantic_Nutrition.pdf)). 
 
-This is a base implementation of what was presented at the MLHC, and operates on a limited dataset. The dataset we used for training and publication is not ours to share. If you're interested in using your own nutrition dataset with this API, you can designate a different (local or hosted) csv when you initialize the class. The USDA provides an excellent [starting point](https://fdc.nal.usda.gov) to build a dataset.
+**This is a base implementation of what was presented at the MLHC**, and operates on a limited dataset. The dataset we used for training and publication is not ours to share. If you're interested in using your own nutrition dataset with this API, you can designate a different (local or hosted) csv when you initialize the class. The USDA provides an excellent [starting point](https://fdc.nal.usda.gov) to build a dataset.
 
 ## Installation
 #### Requires Python >= 3.6

@@ -1,5 +1,5 @@
 # Semantic Nutrition
-This repo demonstrates how our semantic nutrition API works. We submitted this process as a clinical abtract to MLHC 2020 ([poster](Poster_Semantic_Nutrition.pdf), [abstract](Abstract_Semantic_Nutrition.pdf)). 
+This repo demonstrates how our semantic nutrition API works. We submitted this process as a clinical abtract to MLHC 2020 ([abstract](https://static1.squarespace.com/static/59d5ac1780bd5ef9c396eda6/t/5f244db1095aca17497b7244/1596214706014/29_CameraReadySubmission_Abstract_Final.pdf)). 
 
 **This is a base implementation of what was presented at the MLHC**, and operates on a limited dataset. The dataset we used for training and publication is not ours to share. If you're interested in using your own nutrition dataset with this API, you can designate a different (local or hosted) csv when you initialize the class. The USDA provides an excellent [starting point](https://fdc.nal.usda.gov) to build a dataset.
 
@@ -38,7 +38,7 @@ my_estimator = Estimator(food_embeddings_filepath = 'my_embeddings.csv')
 
 ## Connecting to mobile assistants, placing the API in an online server, and managing a database
 
-For testing purposes, we used [Siri Shortcuts](https://support.apple.com/en-us/HT209055) (iOS) and [Google Assistant / IFTTT webhooks](https://ifttt.com/google_assistant) (Android) to send voice transcriptions to [Google Firebase](https://firebase.google.com/docs/storage/web/start). Once received, the incoming data would trigger a [Firebase Cloud Function](https://firebase.google.com/docs/functions). The Firebase Function relayed the voice transcription to our [Semantic Nutrition API](semantic.py)(hosted online with [Flask](https://flask.palletsprojects.com/en/1.1.x/quickstart/) and [Google App Engine](https://cloud.google.com/appengine/docs/standard/python3/building-app)), which responded with estimates for nutrition data. The nutrition data was then logged in Google Firebase.
+For testing purposes, we used Siri Shortcuts (iOS) and Google Assistant / IFTTT webhooks (Android) to send voice transcriptions to Google Firebase. Once received, the incoming data would trigger a Firebase Cloud Function. The Firebase Function relayed the voice transcription to our [Semantic Nutrition API](semantic.py)(hosted online with Flask and Google App Engine), which responded with estimates for nutrition data. The nutrition data was then logged in Google Firebase.
 
 While useful for testing and demonstrations, this method has been depecrated in favor of a native mobile application and private server / database. Please stay tuned for future developments, and feel free to use our API locally in the meantime!
 

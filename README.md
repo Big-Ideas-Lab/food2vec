@@ -1,5 +1,5 @@
 # Semantic Nutrition
-This repo demonstrates how our semantic nutrition API works. We submitted this process as a clinical abtract to MLHC 2020 ([abstract](https://static1.squarespace.com/static/59d5ac1780bd5ef9c396eda6/t/5f244db1095aca17497b7244/1596214706014/29_CameraReadySubmission_Abstract_Final.pdf)). 
+This repo demonstrates how our semantic nutrition API works. We submitted this process as a clinical abtract to MLHC 2020 ([abstract](https://github.com/Big-Ideas-Lab/food2vec/blob/2b4c4ef5584b33349be03b3cb198a7b84b3230c7/Abstract_Semantic_Nutrition.pdf)). 
 
 **This is a base implementation of what was presented at the MLHC**, and operates on a limited dataset. The dataset we used for training and publication is not ours to share. If you're interested in using your own nutrition dataset with this API, you can designate a different (local or hosted) csv when you initialize the class. The USDA provides an excellent [starting point](https://fdc.nal.usda.gov) to build a dataset.
 
